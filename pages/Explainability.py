@@ -39,7 +39,12 @@ samples= sample.iloc[[index]]
 
 prediction = model.predict(samples)[0]
 proba = model.predict_proba(samples).max()
-
+if prediction==0:
+    prediction="Low"
+elif prediction==1:
+    prediction="Medium"
+else:
+    prediction="High"
 st.write(f"### Prediction: {prediction}")
 st.write(f"### Confidence: {proba:.2f}")
 
