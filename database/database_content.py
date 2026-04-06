@@ -11,9 +11,11 @@ def database_content_view():
     elif all_data:
         # Fetch data using the existing SQLAlchemy engine
         data = pd.read_sql_query('SELECT * FROM "Efficiency_Prediction_History"', engine)
+        
         # Display the data table
         st.dataframe(data,width='stretch',hide_index=True)
         st.write(f"**Total number of records:** {len(data)}")
+    
         # Generate CSV for download
         csv = data.to_csv(index=False).encode('utf-8')
         st.download_button(
@@ -22,7 +24,7 @@ def database_content_view():
             file_name="efficiency_prediction_history.csv",
             mime="text/csv",
             help="Click to download all saved prediction records as a CSV file.")
-     else:
+    else:
         st.info('Data base is not created please upload the csv file in the efficiency prediction page')
         # Generate Binary Download for the SQLite .db file
         #if os.path.exists(DATABASE_URL):
