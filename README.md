@@ -150,35 +150,56 @@ We developed an **end-to-end AI system** that:
 ## 🏗️ Project Structure
 
 ```
-AI-Manufacturing-Efficiency/
-│
-├── data/
-│   └── Thales_Group_Manufacturing.csv
-│
+AI-Based Manufacturing Efficiency Classification/
+├── Authentication/
+│   ├── config.py                  # Logic for loading authentication settings
+│   ├── config.yaml                # Encrypted user credentials and configuration
+│   ├── main.py                    # Primary authentication UI (Login/Forgot Password)
+│   └── signup.py                  # User registration and validation logic
+├── database/
+│   ├── database_content.py        # UI logic for viewing prediction history
+│   ├── database_create.py         # SQLAlchemy models and DB connection setup
+│   └── manufacturing_efficiency.db # Local SQLite storage for prediction logs
+├── model_tracking/
+│   └── mlflow_track.py            # MLflow integration for experiment tracking
+├── pages/
+│   ├── Data_Quality.py            # Data health and outlier detection reports
+│   ├── Data_Validation.py         # Statistical data validation reports
+│   ├── Digital_Twin_Simulation.py # Digital Twin simulation interface
+│   ├── EDA_Dashboard.py           # Exploratory Data Analysis visuals
+│   ├── Explainability.py          # SHAP-based feature importance visuals
+│   ├── Machine_insights.py        # Individual machine performance insights
+│   ├── MACHINE_Efficiency_TRENDS.py # Temporal efficiency trend analysis
+│   ├── model_comparision_and_metrics.py # Model evaluation and selection
+│   ├── Network_vs_Sensor_Impact_Comparison.py # Impact correlation analysis
+│   ├── Operational_Monitoring.py  # Real-time operational oversight
+│   ├── Risk_Alerts.py             # Anomaly detection and risk alerts
+│   └── ThresholdOptimization.py   # Classification threshold tuning
+├── prediction/
+│   └── Efficiency_Prediction.py   # Inference logic for efficiency classification
 ├── src/
-│   ├── preprocessing.py
-│   ├── data_validation.py
-│   ├── explainability.py
-│   ├── insights.py
-│   ├── low_efficiency_analysis.py
-│   ├── executive_summary.py
-│
-├── dashboard/
-│   ├── app.py
-│   └── pages/
-│       ├── 00_Data_Validation.py
-│       ├── 01_EDA.py
-│       ├── 02_Prediction.py
-│       ├── 03_Explainability.py
-│       ├── 04_Operational_Insights.py
-│       ├── 05_Executive_Summary.py
-│       ├── 06_Low_Efficiency_Analysis.py
-│
-├── models/
-│   └── trained_model.pkl
-│
-├── requirements.txt
-└── README.md
+│   ├── data_loader.py             # Dataset ingestion logic
+│   ├── data_quality.py            # Statistical quality check utilities
+│   ├── data_validation.py         # valiate the dataset
+│   ├── low_efficiency_analysis.py # low efficieny analysis 
+│   ├── Machine_EfficiencyTrends.py # idendify per Machine Efficiency Trends
+│   ├── eda.py                     # Backend functions for EDA dashboards
+│   ├── explainability.py          # Logic for SHAP value generation
+│   ├── feature_engineering.py     # Manufacturing-specific feature creation
+│   ├── model_training.py         # Core ML training pipeline
+│   ├── model_training1.py         # Core ML training pipeline
+│   ├── Network_vs_Sensor_Impact.py # Network VS Sensor Comparision
+│   ├── preprocessing.py           # Data cleaning and scaling utilities
+│   └── simulate_machine.py        # simulate the sensor value to predict the machine
+├── utils/
+│   └── threshold.py               # Metric calculations for various thresholds
+├── best model/               # Directory containing production-ready .pkl model files
+├── data/
+│   └── results.csv           #Model Result Data  
+│   └── Thales_Group_Manufacturing.csv # orginal data set
+│   └── sample.csv            # sample data set for prediction
+├── app.py                   # Main application entry point
+└── requirements.txt          # List of project dependencies
 ```
 
 ---
