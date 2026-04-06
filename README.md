@@ -254,12 +254,36 @@ streamlit run dashboard/app.py
 
 ## 🛠️ Technologies Used
 
-* Python
-* Pandas, NumPy
-* Scikit-learn
-* SHAP
-* Matplotlib, Seaborn
-* Streamlit
+🐍 Language & Runtime
+├── Python 3.10+
+├── Virtual environment management
+
+📊 Data Engineering
+├── Pandas: Data manipulation & analysis
+├── NumPy: Numerical computing
+├── SQLAlchemy: Database ORM layer
+
+🤖 Machine Learning
+├── Scikit-learn: Core ML algorithms
+├── XGBoost: Gradient boosting optimization
+├── imbalanced-learn: SMOTE/ADASYN sampling
+
+🧠 Explainability & Visualization
+├── SHAP: Model interpretation framework
+├── Matplotlib/Seaborn: Static visualizations
+├── Plotly: Interactive dashboard charts
+├── seaborn: Interactive dashboard charts
+
+
+🌐 Deployment & MLOps
+├── Streamlit: Interactive web application
+├── MLflow: Experiment tracking & model registry
+├── Joblib: Model serialization
+├── streamlit-authenticator: User management
+
+🗄️ Data Persistence
+├── SQLite: Local prediction logging
+├── PostgreSQL-ready: psycopg drivers included
 
 ---
 
