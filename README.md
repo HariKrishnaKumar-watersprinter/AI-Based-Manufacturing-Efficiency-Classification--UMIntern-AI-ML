@@ -150,57 +150,68 @@ We developed an **end-to-end AI system** that:
 ## 🏗️ Project Structure
 
 ```
-AI-Based Manufacturing Efficiency Classification/
-├── Authentication/
-│   ├── config.py                  # Logic for loading authentication settings
-│   ├── config.yaml                # Encrypted user credentials and configuration
-│   ├── main.py                    # Primary authentication UI (Login/Forgot Password)
-│   └── signup.py                  # User registration and validation logic
-├── database/
-│   ├── database_content.py        # UI logic for viewing prediction history
-│   ├── database_create.py         # SQLAlchemy models and DB connection setup
-│   └── manufacturing_efficiency.db # Local SQLite storage for prediction logs
-├── model_tracking/
-│   └── mlflow_track.py            # MLflow integration for experiment tracking
-├── pages/
-│   ├── Data_Quality.py            # Data health and outlier detection reports
-│   ├── Data_Validation.py         # Statistical data validation reports
-│   ├── Digital_Twin_Simulation.py # Digital Twin simulation interface
-│   ├── EDA_Dashboard.py           # Exploratory Data Analysis visuals
-│   ├── Explainability.py          # SHAP-based feature importance visuals
-│   ├── Machine_insights.py        # Individual machine performance insights
-│   ├── MACHINE_Efficiency_TRENDS.py # Temporal efficiency trend analysis
-│   ├── model_comparision_and_metrics.py # Model evaluation and selection
-│   ├── Network_vs_Sensor_Impact_Comparison.py # Impact correlation analysis
-│   ├── Operational_Monitoring.py  # Real-time operational oversight
-│   ├── Risk_Alerts.py             # Anomaly detection and risk alerts
-│   └── ThresholdOptimization.py   # Classification threshold tuning
-├── prediction/
-│   └── Efficiency_Prediction.py   # Inference logic for efficiency classification
-├── src/
-│   ├── data_loader.py             # Dataset ingestion logic
-│   ├── data_quality.py            # Statistical quality check utilities
-│   ├── data_validation.py         # valiate the dataset
-│   ├── low_efficiency_analysis.py # low efficieny analysis 
-│   ├── Machine_EfficiencyTrends.py # idendify per Machine Efficiency Trends
-│   ├── eda.py                     # Backend functions for EDA dashboards
-│   ├── explainability.py          # Logic for SHAP value generation
-│   ├── feature_engineering.py     # Manufacturing-specific feature creation
-│   ├── model_training.py         # Core ML training pipeline
-│   ├── model_training1.py         # Core ML training pipeline
-│   ├── Network_vs_Sensor_Impact.py # Network VS Sensor Comparision
-│   ├── preprocessing.py           # Data cleaning and scaling utilities
-│   └── simulate_machine.py        # simulate the sensor value to predict the machine
-├── utils/
-│   └── threshold.py               # Metric calculations for various thresholds
-├── best model/               # Directory containing production-ready .pkl model files
-├── data/
-│   └── results.csv           #Model Result Data  
-│   └── Thales_Group_Manufacturing.csv # orginal data set
-│   └── sample.csv            # sample data set for prediction
-├── app.py                   # Main application entry point
-└── requirements.txt          # List of project dependencies
-```
+AI-Based-Manufacturing-Efficiency-Classification/
+│
+├── 📦 Authentication/          # User auth & security layer
+│   ├── config.py               # Auth configuration loader
+│   ├── config.yaml             # Encrypted credentials
+│   ├── main.py                 # Login/Forgot Password UI
+│   └── signup.py               # User registration logic
+│
+├── 🗄️ database/                # Data persistence layer
+│   ├── database_content.py     # Prediction history viewer
+│   ├── database_create.py      # SQLAlchemy models & DB setup
+│   └── manufacturing_efficiency.db  # SQLite prediction logs
+│
+├── 📊 model_tracking/          # MLOps & experiment tracking
+│   └── mlflow_track.py         # MLflow integration module
+│
+├── 🖥️ pages/                   # Streamlit dashboard modules (12 pages)
+│   ├── Data_Quality.py         # Health & outlier reports
+│   ├── Data_Validation.py      # Statistical validation
+│   ├── Digital_Twin_Simulation.py  # What-if scenario testing
+│   ├── EDA_Dashboard.py        # Exploratory visualizations
+│   ├── Explainability.py       # SHAP feature importance
+│   ├── Machine_insights.py     # Per-machine analytics
+│   ├── MACHINE_Efficiency_TRENDS.py  # Temporal trend analysis
+│   ├── model_comparision_and_metrics.py  # Model evaluation
+│   ├── Network_vs_Sensor_Impact_Comparison.py  # Impact analysis
+│   ├── Operational_Monitoring.py  # Real-time oversight
+│   ├── Risk_Alerts.py          # Anomaly detection alerts
+│   └── ThresholdOptimization.py  # Classification threshold tuning
+│
+├── 🔮 prediction/              # Inference engine
+│   └── Efficiency_Prediction.py  # Real-time classification logic
+│
+├── ⚙️ src/                     # Core ML pipeline modules
+│   ├── data_loader.py          # Dataset ingestion
+│   ├── data_quality.py         # Statistical quality checks
+│   ├── data_validation.py      # Schema & range validation
+│   ├── low_efficiency_analysis.py  # Root cause engine
+│   ├── Machine_EfficiencyTrends.py  # Trend identification
+│   ├── eda.py                  # EDA backend functions
+│   ├── explainability.py       # SHAP value generation
+│   ├── feature_engineering.py  # Manufacturing feature creation
+│   ├── model_training.py       # Core ML training pipeline
+│   ├── model_training1.py      # Alternative training pipeline
+│   ├── Network_vs_Sensor_Impact.py  # Impact correlation analysis
+│   ├── preprocessing.py        # Cleaning & scaling utilities
+│   └── simulate_machine.py     # Sensor value simulation
+│
+├── 🧰 utils/                   # Helper utilities
+│   └── threshold.py            # Metric calculations
+│
+├── 🤖 best model/              # Production-ready .pkl models
+│
+├── 📁 data/                    # Data assets
+│   ├── Thales_Group_Manufacturing.csv  # Original dataset
+│   ├── sample.csv              # Prediction sample data
+│   └── results.csv             # Model evaluation results
+│
+├── 📄 app.py                   # Main Streamlit entry point
+├── 📋 requirements.txt         # Python dependencies
+├── 🚫 .gitignore               # Git ignore rules
+└── 📖 README.md                # Project documentation
 
 ---
 
