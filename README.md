@@ -254,7 +254,6 @@ streamlit run dashboard/app.py
 
 ## 🛠️ Technologies Used
 ```
-|
 🐍 Language & Runtime
 ├── Python 3.10+
 ├── Virtual environment management
