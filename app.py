@@ -68,7 +68,7 @@ pages = {
     ],
     "Strategy & Risk": [
         st.Page("pages/Risk_Alerts.py", title="RISK & ALERT DASHBOARD", icon="🚨"),
-        st.Page("pages/Machine_insights.py", title="Machine Insights", icon="💡"),
+        st.Page("pages/Machine_Insights.py", title="Machine Insights", icon="💡"),
         st.Page("pages/Operational_Monitoring.py", title="Operation Monitoring", icon="⚙️"),
         st.Page("pages/Digital_Twin_Simulation.py", title="Digital Twin Simulation", icon="🏭"),
         st.Page("pages/Network_vs_Sensor_Impact_Comparison.py", title="Network VS Sensor Comparision", icon="📡"),
