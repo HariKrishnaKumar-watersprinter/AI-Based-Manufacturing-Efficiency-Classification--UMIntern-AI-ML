@@ -111,7 +111,47 @@ We developed an **end-to-end AI system** that:
 * Government-ready output
 
 ---
+## 🤖 Model Training Architecture
+              
+┌─────────────────────────────────────┐
+│ 1. DATA PREPARATION                 │
+│    • Load Thales_Group_Manufacturing.csv
+│    • Schema validation & cleaning
+│    • Train-test split (stratified)
+└────────────┬────────────────────────┘
+             ▼
+┌─────────────────────────────────────┐
+│ 2. PREPROCESSING                    │
+│    • Missing value imputation
+│    • Outlier detection (IQR method)
+│    • Feature scaling (RobustScaler)
+│    • Categorical encoding
+└────────────┬────────────────────────┘
+             ▼
+┌─────────────────────────────────────┐
+│ 3. MODEL CANDIDATES                 │
+│    • Logistic Regression (baseline)
+│    • Decision Tree (interpretable)
+│    • Random Forest (robust ensemble)
+│    • Gradient Boosting (high accuracy)
+│    • XGBoost (optimized performance)
+└────────────┬────────────────────────┘
+             ▼
+┌─────────────────────────────────────┐
+│ 4. HYPERPARAMETER OPTIMIZATION      │
+│    • GridSearchCV with 5-fold CV
+│    • Parameter grids per algorithm
+│    • ROC-AUC as primary metric
+└────────────┬────────────────────────┘
+             ▼
+┌─────────────────────────────────────┐
+│ 5. MODEL SELECTION & SERIALIZATION  │
+│    • Best model by ROC-AUC score
+│    • Save to best model/ as .pkl
+│    • Log experiments via MLflow
+└─────────────────────────────────────┘
 
+---
 ## 🖥️ Streamlit Dashboard Modules
 
 ### 1️⃣ Data Validation Dashboard
