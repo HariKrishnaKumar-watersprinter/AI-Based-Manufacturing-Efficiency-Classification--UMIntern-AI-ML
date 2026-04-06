@@ -4,6 +4,9 @@ import joblib
 from prediction.predict_model import predict_eff,load_prediction_model
 from database.database_create import save_data
 from datetime import datetime
+from src.low_efficiency_analysis import LowEfficiencyAnalyzer
+import matplotlib.pyplot as plt
+import seaborn as sns
 def pred():
     st.title("🔮 Efficiency Prediction")
 
@@ -61,18 +64,59 @@ def pred():
             
             st.subheader("📊 Prediction Distribution")
             st.bar_chart(df1['Predicted_Efficiency'].value_counts(ascending=False))
-            
+            st.subheader("📉 Low Efficiency Data")
             low_eff = df1[df1['Predicted_Efficiency']=="Low"]
             st.dataframe(low_eff)
+
+            st.title("⚠️ Low Efficiency Analysis & Action Center")
+
+
+            analyzer = LowEfficiencyAnalyzer()
+
+# -------------------------
+# 1. ROOT CAUSE ANALYSIS
+# -------------------------
             st.subheader("🔍 Root Cause Analysis")
+
+            analysis_df = analyzer.root_cause_analysis()
+
+            st.dataframe(analysis_df)
+
+# Visualization
             if not low_eff.empty:
                 
                 st.write("Top contributing factors for LOW efficiency:")
                 
-                st.bar_chart(low_eff.mean(numeric_only=True))
-                
-                st.write("Detailed analysis for LOW efficiency:")
-                
+                st.bar_chart(analysis_df['Difference'])
+
+# -------------------------
+# 2. TOP CAUSES
+# -------------------------
+            st.subheader("🚨 Top Contributing Factors")
+
+            top_causes = analyzer.identify_top_causes()
+
+            st.dataframe(top_causes)
+
+# -------------------------
+# 3. RECOMMENDED ACTIONS
+# -------------------------
+            st.subheader("🛠️ Recommended Actions")
+
+            actions = analyzer.recommended_actions()
+
+            for act in actions:
+                st.warning(act)
+
+# -------------------------
+# 4. PROACTIVE ACTIONS
+# -------------------------
+            st.subheader("🚀 Proactive Strategies")
+
+            proactive = analyzer.proactive_actions()
+
+            for p in proactive:
+                st.success(p)   
             for _, row in df1.iterrows():
                 save_data(
                     Date=row['Date'],
