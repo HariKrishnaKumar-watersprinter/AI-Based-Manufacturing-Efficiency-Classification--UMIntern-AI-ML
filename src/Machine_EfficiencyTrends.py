@@ -21,6 +21,6 @@ def machine_trends():
     # -------------------------
 def machine_efficiency_distribution():
 
-        dist = df.groupby('Machine_ID')['Efficiency_Status'].value_counts(normalize=True).unstack().fillna(0)
+        dist = df.groupby('Machine_ID')['Efficiency_Status'].value_counts(normalize=True).unstack().fillna(0)*100
 
         return dist
