@@ -277,13 +277,19 @@ streamlit run dashboard/app.py
 Contributions are welcome! Feel free to fork and improve.
 
 ---
+---
 
+## 🎤 Author
+
+**Hari Krishna Kumar -AI,ML,Data Science & Analytics Enthusiast**
+
+---
 ## 📬 Contact
 
 For collaboration or queries:
 
-* LinkedIn: *[Your Profile]*
-* Email: *[Your Email]*
+* LinkedIn: *[www.linkedin.com/in/hari-668364112]*
+* Email: *[harikrishnakumar368@gmail.com]*
 
 ---
 
