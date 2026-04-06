@@ -253,11 +253,9 @@ streamlit run dashboard/app.py
 ---
 
 ## 🛠️ Technologies Used
-
 🐍 Language & Runtime
 ├── Python 3.10+
 ├── Virtual environment management
-
 📊 Data Engineering
 ├── Pandas: Data manipulation & analysis
 ├── NumPy: Numerical computing
@@ -273,7 +271,6 @@ streamlit run dashboard/app.py
 ├── Matplotlib/Seaborn: Static visualizations
 ├── Plotly: Interactive dashboard charts
 ├── seaborn: Interactive dashboard charts
-
 
 🌐 Deployment & MLOps
 ├── Streamlit: Interactive web application
