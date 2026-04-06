@@ -2,7 +2,6 @@ import streamlit as st
 import pandas as pd
 import plotly.express as px
 from src.data_quality import data_quality_preprocessing
-import networkx as nx
 import matplotlib.pyplot as plt
 import seaborn as sns
 import numpy as np
