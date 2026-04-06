@@ -1,0 +1,49 @@
+artifact_path: mlflow-artifacts:/1/models/m-5acc345e38204056b2466c97ca0d5993/artifacts
+env_vars:
+- MAPBOX_API_KEY
+flavors:
+  python_function:
+    env:
+      conda: conda.yaml
+      virtualenv: python_env.yaml
+    loader_module: mlflow.sklearn
+    model_path: model.pkl
+    predict_fn: predict
+    python_version: 3.14.2
+  sklearn:
+    code: null
+    pickled_model: model.pkl
+    serialization_format: cloudpickle
+    sklearn_version: 1.8.0
+    skops_trusted_types: null
+is_signature_from_type_hint: false
+mlflow_version: 3.10.1
+model_id: m-5acc345e38204056b2466c97ca0d5993
+model_size_bytes: 17604118
+model_uuid: m-5acc345e38204056b2466c97ca0d5993
+prompts: null
+run_id: 355c9624db134c958a731bd466ec0216
+saved_input_example_info:
+  artifact_path: input_example.json
+  pandas_orient: split
+  serving_input_path: serving_input_example.json
+  type: dataframe
+signature:
+  inputs: '[{"type": "double", "name": "Temperature_C", "required": true}, {"type":
+    "double", "name": "Vibration_Hz", "required": true}, {"type": "double", "name":
+    "Power_Consumption_kW", "required": true}, {"type": "double", "name": "Network_Latency_ms",
+    "required": true}, {"type": "double", "name": "Packet_Loss_%", "required": true},
+    {"type": "double", "name": "Quality_Control_Defect_Rate_%", "required": true},
+    {"type": "double", "name": "Production_Speed_units_per_hr", "required": true},
+    {"type": "double", "name": "Predictive_Maintenance_Score", "required": true},
+    {"type": "double", "name": "Error_Rate_%", "required": true}, {"type": "double",
+    "name": "Temp_Stability", "required": true}, {"type": "double", "name": "Vibration_Stability",
+    "required": true}, {"type": "double", "name": "Energy_per_Unit", "required": true},
+    {"type": "double", "name": "Error_to_Output", "required": true}, {"type": "double",
+    "name": "Network_Reliability", "required": true}, {"type": "double", "name": "Operation_Mode_Active",
+    "required": true}, {"type": "double", "name": "Operation_Mode_Idle", "required":
+    true}, {"type": "double", "name": "Operation_Mode_Maintenance", "required": true}]'
+  outputs: '[{"type": "tensor", "tensor-spec": {"dtype": "int64", "shape": [-1]}}]'
+  params: null
+type_hint_from_example: false
+utc_time_created: '2026-04-04 13:30:08.689518'

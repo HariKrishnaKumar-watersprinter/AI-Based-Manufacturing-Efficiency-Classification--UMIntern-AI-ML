@@ -1,0 +1,36 @@
+cookie:
+  expiry_days: 30
+  key: Manufactureing_efficiency_predic_2026
+  name: Manufactureing_efficiency_predic_auth_cookie
+credentials:
+  usernames:
+    admin:
+      email: admin@example.com
+      name: Admin User
+      password: $2b$12$KGR14VEBJpeqox2Q04Vt3.hp/VEqEcSPe5vQOMkZ1QnO4KoHTvzq2
+    ramesh:
+      email: ramesh@gmail.com
+      first_name: Ramesh
+      last_name: kumar
+      logged_in: false
+      password: $2b$12$FEWhDmu7eZ4zwE7KRjVhXe3CGeT7.solt/B9TrSl73nbg4h/NpZDa
+      password_hint: '@Ramesh2222'
+      roles: null
+    suresh:
+      email: suresh@gmail.com
+      first_name: suresh
+      last_name: kumar
+      logged_in: false
+      password: $2b$12$VAJogI8io3JrMK5jl544wOIQetl6Sh/tQIrk.AHwJ61rBcgFKNUt6
+      password_hint: '@suresh2'
+      roles: null
+    xyz:
+      email: xyz@gmail.com
+      first_name: xyz
+      last_name: xyz
+      logged_in: false
+      password: $2b$12$MbaCRRMQCpjVMKx8bs9Pbu469B5jV.TA4mT2aQ6si2iEVOzWY.WSq
+      password_hint: '@xyz2'
+      roles: null
+preauthorized:
+  emails: []
