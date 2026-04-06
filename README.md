@@ -283,9 +283,8 @@ streamlit run dashboard/app.py
 🗄️ Data Persistence
 ├── SQLite: Local prediction logging
 ├── PostgreSQL-ready: psycopg drivers included
-
+```
 ---
-
 ## 🔮 Future Enhancements
 
 * Real-time streaming (Kafka)
