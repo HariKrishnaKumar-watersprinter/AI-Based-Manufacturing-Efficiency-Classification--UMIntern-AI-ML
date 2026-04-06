@@ -16,7 +16,7 @@ if "database" in st.secrets:
     engine = sa.create_engine(DATABASE_URL, pool_pre_ping=True)
     st.info("✅ Connected to Supabase PostgreSQL")
 else:
-    model_path = os.path.join(os.getcwd(), "database", "bank_data.db")
+    model_path = os.path.join(os.getcwd(), "database", "manufacturing_efficiency.db")
     engine = sa.create_engine(f'sqlite:///{model_path}',connect_args={"check_same_thread": False})
 
     with engine.connect() as conn:
@@ -49,8 +49,9 @@ SessionLocal = sessionmaker(bind=engine)
 
 def save_data(Date,Timestamp,MachineID,Operation_Mode,Temperature_C,Vibration_Hz,Power_Consumption_kW,Network_Latency_ms,Packet_Loss,Quality_Control_Defect_Rate,Production_Speed_units_per_hr,Predictive_Maintenance_Score,Error_Rate,prediction_Efficiency,prediction_Confidence):
     
+    Base.metadata.create_all(engine)
     # Insert new record
-    new_customer = Effciencypred(
+    new_prediction = Effciencypred(
                  Date=Date, Timestamp=Timestamp, MachineID=MachineID,
                 Operation_Mode=Operation_Mode, Temperature_C=Temperature_C, 
                 Vibration_Hz=Vibration_Hz, Power_Consumption_kW=Power_Consumption_kW, 
@@ -62,7 +63,7 @@ def save_data(Date,Timestamp,MachineID,Operation_Mode,Temperature_C,Vibration_Hz
                 prediction_Confidence = prediction_Confidence)
     session = SessionLocal()
     try:
-        session.add(new_customer)
+        session.add(new_prediction)
         session.commit()
     except Exception as e:
         session.rollback()  # This fixes the PendingRollbackError for future attempts
@@ -71,6 +72,7 @@ def save_data(Date,Timestamp,MachineID,Operation_Mode,Temperature_C,Vibration_Hz
         session.close()
 
 def get_all_data():
+    Base.metadata.create_all(engine)
     session = SessionLocal()
     try:
         return session.query(Effciencypred).all()
