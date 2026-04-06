@@ -8,9 +8,11 @@ def database_content_view():
     all_data = get_all_data()
     if not all_data:
         st.info("The database is currently empty. Predicted results will be saved here automatically.")
-    else:
+    elif:
         # Fetch data using the existing SQLAlchemy engine
         data = pd.read_sql_query('SELECT * FROM "Efficiency_Prediction_History"', engine)
+    else:
+        st.info('Data base is not created please upload the csv file in the efficiency prediction page')
         
         # Display the data table
         st.dataframe(data,width='stretch',hide_index=True)
