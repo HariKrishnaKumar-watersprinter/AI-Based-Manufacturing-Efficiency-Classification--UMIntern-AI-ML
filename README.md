@@ -210,18 +210,7 @@ AI-Based-Manufacturing-Efficiency-Classification/
 │
 ├── 📄 app.py                   # Main Streamlit entry point
 ├── 📋 requirements.txt         # Python dependencies
-├── 🚫 .gitignore               # Git ignore rules
-└── 📖 README.md                # Project documentation
 
----
-
-## ⚙️ Installation
-
-```bash
-git clone https://github.com/your-username/AI-Manufacturing-Efficiency.git
-cd AI-Manufacturing-Efficiency
-
-pip install -r requirements.txt
 ```
 
 ---
