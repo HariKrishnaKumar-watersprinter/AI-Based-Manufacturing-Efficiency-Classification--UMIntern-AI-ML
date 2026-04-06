@@ -23,7 +23,7 @@ fig = px.bar(
     dist.loc[machine_selected],
     title=f"Efficiency Distribution (Machine-{machine_selected})",color=dist.loc[machine_selected].index,
     color_discrete_map={'Low': 'red', 'Medium': 'orange', 'High': 'green'})
-fig.update_traces(texttemplate='%{y}', textposition='auto')
+fig.update_traces(texttemplate='%{y:.2f}', textposition='auto')
 st.plotly_chart(fig)
 # -------------------------
 # 3. MACHINE DISTRIBUTION
