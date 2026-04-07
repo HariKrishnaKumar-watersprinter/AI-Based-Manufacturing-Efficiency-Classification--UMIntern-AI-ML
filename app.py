@@ -73,16 +73,12 @@ pages = {
         st.Page("pages/Digital_Twin_Simulation.py", title="Digital Twin Simulation", icon="🏭"),
         st.Page("pages/Network_vs_Sensor_Impact_Comparison.py", title="Network VS Sensor Comparision", icon="📡"),
         st.Page("pages/MACHINE_Efficiency_TRENDS.py", title="Machine Efficiency Trends", icon="📈"),
-    ],
-    "Government": [
-    # st.Page("pages/Executive Summary for Government Stakeholders.py", title="Executive Summary", icon="🏛️"),
-    ]
-}
+    ]}
 
 
 if __name__ == "__main__":
-    auth_status = main.user_auth()
-    if auth_status:
+    #auth_status = main.user_auth()
+    #if auth_status:
         df=load_data()
         
         pg = st.navigation(pages)
