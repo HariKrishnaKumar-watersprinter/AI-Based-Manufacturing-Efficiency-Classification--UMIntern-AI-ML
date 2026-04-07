@@ -1,4 +1,4 @@
-# 🏭 AI-Based Manufacturing Efficiency Classification
+# 🏭 AI-Based Manufacturing Machine Efficiency Classification
 Deployed link : https://ai-based-manufacturing-efficiency-classification.streamlit.app/
 
 ### Using Sensor, Production, and 6G Network Data
