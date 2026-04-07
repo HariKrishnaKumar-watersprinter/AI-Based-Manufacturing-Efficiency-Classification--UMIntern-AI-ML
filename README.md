@@ -112,7 +112,7 @@ We developed an **end-to-end AI system** that:
 * Policy recommendations
 * Government-ready output
 ---
-##🤖 Model Training Architecture 
+## 🤖 Model Training Architecture 
 ```
 ┌─────────────────────────────────────┐
 │ 1. DATA PREPARATION                 │
