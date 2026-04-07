@@ -81,8 +81,8 @@ pages = {
 
 
 if __name__ == "__main__":
-    auth_status = main.user_auth()
-    if auth_status:
+    #auth_status = main.user_auth()
+    #if auth_status:
         df=load_data()
         
         pg = st.navigation(pages)
