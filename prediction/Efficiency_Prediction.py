@@ -73,9 +73,8 @@ def pred():
 
             analyzer = LowEfficiencyAnalyzer()
 
-# -------------------------
-# 1. ROOT CAUSE ANALYSIS
-# -------------------------
+
+#ROOT CAUSE ANALYSIS
             st.subheader("🔍 Root Cause Analysis")
 
             analysis_df = analyzer.root_cause_analysis()
@@ -89,18 +88,16 @@ def pred():
                 
                 st.bar_chart(analysis_df['Difference'])
 
-# -------------------------
-# 2. TOP CAUSES
-# -------------------------
+
+# TOP CAUSES
             st.subheader("🚨 Top Contributing Factors")
 
             top_causes = analyzer.identify_top_causes()
 
             st.dataframe(top_causes)
 
-# -------------------------
-# 3. RECOMMENDED ACTIONS
-# -------------------------
+
+# RECOMMENDED ACTIONS
             st.subheader("🛠️ Recommended Actions")
 
             actions = analyzer.recommended_actions()
@@ -108,9 +105,8 @@ def pred():
             for act in actions:
                 st.warning(act)
 
-# -------------------------
-# 4. PROACTIVE ACTIONS
-# -------------------------
+# PROACTIVE ACTIONS
+
             st.subheader("🚀 Proactive Strategies")
 
             proactive = analyzer.proactive_actions()
