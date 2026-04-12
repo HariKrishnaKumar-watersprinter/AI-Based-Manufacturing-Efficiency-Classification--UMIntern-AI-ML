@@ -34,10 +34,7 @@ def model_training():
     
     os.makedirs(model_dir, exist_ok=True)
     os.makedirs(data_dir,exist_ok=True)
-# -------------------------------------------------
-# -------------------------------------------------
 # SAMPLING METHODS
-# -------------------------------------------------
     sampling_methods = {
     "None": None,
     "OverSampling": RandomOverSampler(),
@@ -49,9 +46,7 @@ def model_training():
     "TomekLinks": TomekLinks(sampling_strategy='majority'),
     "AllKNN": AllKNN(sampling_strategy='auto')}
 
-# -------------------------------------------------
 # MODELS
-# -------------------------------------------------
     models = {
     "Logistic": LogisticRegression(),
     "DecisionTree": DecisionTreeClassifier(),
@@ -59,9 +54,7 @@ def model_training():
     "GradientBoosting": GradientBoostingClassifier(),
     "XGBoost": XGBClassifier(eval_metric="logloss")}
 
-# -------------------------------------------------
 # HYPERPARAMETERS
-# -------------------------------------------------
     param_grids = {
     "Logistic": {
     'model__C': [0.001, 0.01, 0.1, 1, 10, 100, 1000],
@@ -109,9 +102,7 @@ def model_training():
     'model__gamma': [1, 2, 3, 4],
     'model__reg_lambda':[1,2,3,4,5]}}
 
-# -------------------------------------------------
 # TRAIN LOOP
-# -------------------------------------------------
     results = []    
     best_model = None
     best_score = 0
@@ -176,16 +167,10 @@ def model_training():
                 best_score = auc
                 best_model = grid.best_estimator_
 
-# -------------------------------------------------
 # RESULTS
-# -------------------------------------------------
     results_df = pd.DataFrame(results).sort_values(by="ROC-AUC", ascending=False).reindex()
     results_df.to_csv(data_dir / "results.csv", index=False)
     print("\n🏆 FINAL RESULTS")
     print(results_df.head(10))
-# -------------------------------------------------
 # SAVE BEST MODEL
-# -------------------------------------------------
-
-
     print("\n💾 Best model with sampling saved!")
