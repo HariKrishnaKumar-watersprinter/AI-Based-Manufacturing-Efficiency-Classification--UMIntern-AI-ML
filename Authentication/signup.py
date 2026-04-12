@@ -17,7 +17,6 @@ def signup_user(authenticator, config, config_path=CONFIG_PATH):
 
     try:
         # ✅ Pre-authorization logic:
-        # If the list is empty or missing, set to None to allow open registration.
         # If the list has emails, only those emails can register.
         preauthorized_list = config.get('preauthorized', {}).get('emails')
         
@@ -30,7 +29,6 @@ def signup_user(authenticator, config, config_path=CONFIG_PATH):
 
         if email_of_registered_user:
             # MUST update the local config object with the updated credentials from the authenticator
-            
             # The 'config' object is automatically updated by the authenticator
             try:
                 with open(config_path, 'w', encoding='utf-8') as file:
