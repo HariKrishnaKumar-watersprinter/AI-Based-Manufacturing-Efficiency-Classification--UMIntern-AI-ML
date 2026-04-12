@@ -15,11 +15,8 @@ from model_tracking.mlflow_track import track_model as mlflow_track_model
 from pathlib import Path
 import plotly.express as px
 import plotly.graph_objects as go
-# --- 0. Authentication Guard ---
+# Authentication Guard
 st.set_page_config(page_title="Model comparision and model metrics", layout="wide")
-
-
-
 
 if "__file__" in globals():
     base_dir = Path(__file__).resolve().parents[1]
@@ -35,7 +32,7 @@ def init_session_state():
     if 'selected_model_name' not in st.session_state:
         st.session_state['selected_model_name'] = None
 
-    # --- 2. Functional Components ---
+# Functional Components 
 
 def render_model_selection():
     """UI for picking and loading a saved model."""
@@ -125,7 +122,7 @@ def render_tracking_section():
             mlflow_track_model()
             st.success("Experiment logged successfully!")
 
-# --- 3. Main Page Execution ---
+# Main Page Execution 
 def main():
     st.title("🏆 Model Selection & Analysis")
     init_session_state()
