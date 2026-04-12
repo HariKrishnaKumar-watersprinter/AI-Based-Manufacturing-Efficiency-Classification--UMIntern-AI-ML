@@ -13,8 +13,6 @@ from prediction.predict_model import predict_eff
 def ThresholdOptimization():
     st.header("🎯 Precision-Recall Optimization")
 
-
-
     _,_,_,y_test = preprocess_data()
     _,_,x_test_scaled= scale_features()
     _,_,model = predict_eff(x_test_scaled)
