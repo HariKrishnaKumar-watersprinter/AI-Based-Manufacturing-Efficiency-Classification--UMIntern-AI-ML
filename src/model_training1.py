@@ -40,10 +40,7 @@ def model_training():
     os.makedirs(model_dir, exist_ok=True)
     os.makedirs(data_dir, exist_ok=True)
 
-# -------------------------------------------------
-# -------------------------------------------------
 # SAMPLING METHODS
-# -------------------------------------------------
     sampling_methods = {
     "None": None,
     "OverSampling": RandomOverSampler(),
@@ -54,18 +51,15 @@ def model_training():
     "SMOTETomek": SMOTETomek(sampling_strategy='auto'),
     "TomekLinks": TomekLinks(sampling_strategy='auto'),
     "AllKNN": AllKNN(sampling_strategy='auto') }
-# -------------------------------------------------
+
 #Params
-# -------------------------------------------------
     logistic_params = {'C': 0.1, 'fit_intercept': False, 'l1_ratio': 0.1, 'max_iter': 50, 'penalty': 'l2', 'solver': 'saga'}
     decision_tree_params = {'class_weight': None, 'criterion': 'entropy', 'max_depth': 7, 'max_features': 'log2', 'min_samples_leaf': 4, 'min_samples_split': 2, 'splitter': 'best'}
     random_forest_params = {'bootstrap': True, 'class_weight': None, 'criterion': 'entropy', 'max_depth': 5, 'max_features': 'sqrt', 'min_samples_leaf': 4, 'min_samples_split': 10, 'n_estimators': 300}
     gradient_boosting_params = {'criterion': 'friedman_mse', 'learning_rate': 0.1, 'max_depth': 3, 'min_samples_leaf': 4, 'min_samples_split': 10, 'n_estimators': 100, 'subsample': 0.8}
     xgboost_params = {'eval_metric':"logloss",'colsample_bytree': 0.9, 'gamma': 4, 'learning_rate': 0.1, 'max_depth': 10, 'min_child_weight': 3, 'n_estimators': 300, 'reg_lambda': 1, 'subsample': 0.9}
 
-# -------------------------------------------------
 # MODELS
-# -------------------------------------------------
     models = {
     "Logistic": LogisticRegression(**logistic_params),
     "DecisionTree": DecisionTreeClassifier(**decision_tree_params),
@@ -73,14 +67,7 @@ def model_training():
     "GradientBoosting": GradientBoostingClassifier(**gradient_boosting_params),
     "XGBoost": XGBClassifier(**xgboost_params)}
 
-# -------------------------------------------------
-# HYPERPARAMETERS
-# -------------------------------------------------
-
-
-# -------------------------------------------------
 # TRAIN LOOP
-# -------------------------------------------------
     results = []
     best_model = None
     best_score = 0
@@ -139,18 +126,14 @@ def model_training():
         
             joblib.dump(model, model_dir / f"{model_name}_{sampler_name}.pkl") 
 
-# -------------------------------------------------
+
 # RESULTS
-# -------------------------------------------------
     results_df = pd.DataFrame(results).sort_values(by="ROC-AUC (macro)", ascending=False).reset_index(drop=True)
     results_df.to_csv(data_dir / "results.csv", index=False)
     print("\n🏆 FINAL RESULTS")
     print(results_df.head(10))
 
-# -------------------------------------------------
-# SAVE BEST MODEL
-# -------------------------------------------------
-    
 
+# SAVE BEST MODEL
     print("\n💾 Best model with sampling saved!")
     return logistic_params, decision_tree_params, random_forest_params, gradient_boosting_params, xgboost_params
