@@ -6,15 +6,11 @@ class LowEfficiencyAnalyzer:
     def __init__(self):
         self.df = data_quality_preprocessing()
 
-    # -------------------------
-    # 1. FILTER LOW EFFICIENCY
-    # -------------------------
+    # FILTER LOW EFFICIENCY
     def get_low_efficiency_data(self):
         return self.df[self.df['Efficiency_Status'] == 'Low']
 
-    # -------------------------
-    # 2. ROOT CAUSE ANALYSIS
-    # -------------------------
+    # ROOT CAUSE ANALYSIS
     def root_cause_analysis(self):
 
         low_df = self.get_low_efficiency_data()
@@ -44,9 +40,7 @@ class LowEfficiencyAnalyzer:
 
         return pd.DataFrame(insights).T.sort_values(by="Difference", ascending=False)
 
-    # -------------------------
-    # 3. TOP CAUSES
-    # -------------------------
+    # TOP CAUSES
     def identify_top_causes(self, threshold_high=5, threshold_low=-5):
 
         df_analysis = self.root_cause_analysis()
@@ -55,10 +49,7 @@ class LowEfficiencyAnalyzer:
         top_issues = df_analysis[(df_analysis['Difference'] > threshold_high) | (df_analysis['Difference'] < threshold_low)]
 
         return top_issues
-
-    # -------------------------
-    # 4. RECOMMENDED ACTIONS
-    # -------------------------
+    # RECOMMENDED ACTIONS
     def recommended_actions(self):
 
         causes = self.identify_top_causes()
@@ -95,10 +86,7 @@ class LowEfficiencyAnalyzer:
                 actions.append("Schedule immediate maintenance checks")
 
         return list(set(actions))
-
-    # -------------------------
-    # 5. PROACTIVE ACTIONS
-    # -------------------------
+    # PROACTIVE ACTIONS
     def proactive_actions(self):
 
         return [
