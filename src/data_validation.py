@@ -8,9 +8,8 @@ class DataValidator:
         self.errors = []
         self.warnings = []
 
-    # -------------------------
-    # 1. Schema Validation
-    # -------------------------
+# Schema Validation
+
     def validate_schema(self):
 
         expected_columns = [
@@ -26,9 +25,7 @@ class DataValidator:
         if missing_cols:
             self.errors.append(f"Missing Columns: {missing_cols}")
 
-    # -------------------------
-    # 2. Data Type Validation
-    # -------------------------
+    # Data Type Validation
     def validate_dtypes(self):
 
         numeric_cols = [
@@ -43,9 +40,8 @@ class DataValidator:
             if not pd.api.types.is_numeric_dtype(self.df[col]):
                 self.errors.append(f"{col} should be numeric")
 
-    # -------------------------
-    # 3. Missing Values
-    # -------------------------
+    # Missing Values
+
     def validate_missing(self):
 
         missing = self.df.isnull().sum()
@@ -54,9 +50,7 @@ class DataValidator:
             if val > 0:
                 self.warnings.append(f"{col} has {val} missing values")
 
-    # -------------------------
-    # 4. Range Checks (DOMAIN RULES)
-    # -------------------------
+    # Range Checks (DOMAIN RULES)
     def validate_ranges(self):
 
         rules = {
@@ -74,10 +68,7 @@ class DataValidator:
             invalid = self.df[(self.df[col] < min_val) | (self.df[col] > max_val)]
             if not invalid.empty:
                 self.errors.append(f"{col} out of range")
-
-    # -------------------------
     # 5. Categorical Validation
-    # -------------------------
     def validate_categories(self):
 
         valid_modes = ['Idle', 'Active', 'Maintenance']
@@ -87,9 +78,8 @@ class DataValidator:
         if not invalid_modes.empty:
             self.warnings.append("Invalid Operation_Mode values found")
 
-    # -------------------------
-    # 6. Time Validation
-    # -------------------------
+
+    # Time Validation
     def validate_datetime(self):
 
         try:
@@ -98,18 +88,13 @@ class DataValidator:
         except:
             self.errors.append("Invalid Date/Time format")
 
-    # -------------------------
-    # 7. Duplicate Check
-    # -------------------------
+    # Duplicate Check
     def validate_duplicates(self):
 
         dup = self.df.duplicated().sum()
         if dup > 0:
             self.warnings.append(f"{dup} duplicate rows found")
-
-    # -------------------------
-    # 8. Outlier Detection (IQR)
-    # -------------------------
+    # Outlier Detection (IQR)
     def detect_outliers(self):
 
         for col in self.df.select_dtypes(include=np.number).columns:
@@ -126,9 +111,7 @@ class DataValidator:
             if len(outliers) > 0:
                 self.warnings.append(f"{col} has {len(outliers)} outliers")
 
-    # -------------------------
     # FINAL REPORT
-    # -------------------------
     def run_all_checks(self):
 
         self.validate_schema()
