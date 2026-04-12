@@ -4,9 +4,8 @@ import matplotlib.pyplot as plt
 import seaborn as sns
 from src.Machine_EfficiencyTrends import machine_efficiency_distribution,machine_trends
 import plotly.express as px
-# -------------------------
-# 2. PER-MACHINE TRENDS
-# -------------------------
+
+# PER-MACHINE TRENDS
 st.subheader("🏭 Per-Machine Efficiency Trends")
 
 trend_df = machine_trends()
@@ -25,9 +24,7 @@ fig = px.bar(
     color_discrete_map={'Low': 'red', 'Medium': 'orange', 'High': 'green'})
 fig.update_traces(texttemplate='%{y:.2f}', textposition='auto')
 st.plotly_chart(fig)
-# -------------------------
 # 3. MACHINE DISTRIBUTION
-# -------------------------
 st.subheader("📊 Machine Efficiency Distribution")
 
 st.dataframe(dist)
