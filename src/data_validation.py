@@ -57,7 +57,7 @@ class DataValidator:
             'Temperature_C': (0, 150),
             'Vibration_Hz': (0, 1000),
             'Power_Consumption_kW': (0, 1000),
-            'Network_Latency_ms': (0, 200),
+            'Network_Latency_ms': (0, 100),
             'Packet_Loss_%': (0,5),
             'Quality_Control_Defect_Rate_%': (0, 5),
             'Error_Rate_%': (0, 5),
